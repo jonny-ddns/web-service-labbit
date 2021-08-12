@@ -1,7 +1,6 @@
 package mvc.db.dto;
 
 import java.util.Date;
-import java.util.List;
 
 public class BoardDto {	
 	private int boardNum;
@@ -10,7 +9,7 @@ public class BoardDto {
 	private Date writeDate;
 	private Date modifyDate;
 	private String content;
-	private List<String> uploadFiles;
+	private String uploadFiles;
 	private String isActive;
 	private int boardLike;
 	private int boardReport;
@@ -57,10 +56,10 @@ public class BoardDto {
 		this.content = content;
 		return this;
 	}
-	public List<String> getUploadFiles() {
+	public String getUploadFiles() {
 		return uploadFiles;
 	}
-	public BoardDto setUploadFiles(List<String> uploadFiles) {
+	public BoardDto setUploadFiles(String uploadFiles) {
 		this.uploadFiles = uploadFiles;
 		return this;
 	}

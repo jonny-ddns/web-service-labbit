@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import mvc.db.dao.BoardDao;
 import mvc.db.dto.BoardDto;
 
+//게시글 수정요청시 - 게시글 번호로 게시글 정보 가져오기
 public class BoardCommand_edit implements BoardCommand{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
@@ -13,8 +14,8 @@ public class BoardCommand_edit implements BoardCommand{
 			System.out.println(">>BoardCommand_edit");
 			
 			BoardDao dao = BoardDao.getInstance();
-			BoardDto board = dao.boardSearchByArtiNum(
-								Integer.parseInt(request.getParameter("artiNum"))
+			BoardDto board = dao.boardSearchByBoardNum(
+								Integer.parseInt(request.getParameter("boardNum"))
 							);
 			request.setAttribute("board", board);
 			System.out.println(">>BoardCommand_edit end");

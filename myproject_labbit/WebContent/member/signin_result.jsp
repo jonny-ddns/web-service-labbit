@@ -15,10 +15,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>signin result</title>
+<title>signIn result</title>
 </head>
 <body>
-	<h1>signin result</h1>
+	<h1>signIn result</h1>
 	
 	<h2><%= ment %></h2>
 	<a href="./signin.jsp">다시 로그인하기</a>

@@ -3,8 +3,8 @@
 <% 
 	System.out.println(">>boardForm_edit.jsp");
 	BoardDto board = (BoardDto)request.getAttribute("board");
-	int artiNum = board.getArtiNum();
-	String artiTitle = board.getArtiTitle();
+	int artiNum = board.getBoardNum();
+	String artiTitle = board.getBoardTitle();
 	String content = board.getContent();
 %>
 <!DOCTYPE html>
@@ -48,19 +48,12 @@
 			</tr>
 			<tr>
 				<td class="tdSelect">
-					주제
+<!-- 					주제
 					<select name="topic">
 						<option value="movie">영화</option>
 						<option value="hobby">취미</option>
 						<option value="life">일상</option>
-					</select>
-				</td>
-				<td class="tdSelect">
-					공개여부
-					<select name="openPublic">
-						<option value="y">공개</option>
-						<option value="n">비공개</option>
-					</select>
+					</select> -->
 				</td>
 				<td class="tdSubmit">
 					<input type="submit" value="수정 완료">

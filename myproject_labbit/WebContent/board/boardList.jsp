@@ -12,10 +12,10 @@
 	if(request.getAttribute("boardList") != null){
 		boardList = (List<BoardDto>) request.getAttribute("boardList");
 	}
-	int artiNum = 0;
+	int boardNum = 0;
 	String writeDate = "";
-	String artiTitle = "";
-	String writer = "";
+	String boardTitle = "";
+	String memId = "";
 %>
 <!DOCTYPE html>
 <html>
@@ -57,15 +57,15 @@
 			</tr>
 			<%
 				for(BoardDto board : boardList){
-							artiNum = board.getArtiNum();
-							artiTitle = board.getArtiTitle();
-							writer = board.getWriter();
-							writeDate = board.getWriteDate();
+							boardNum = board.getBoardNum();
+							boardTitle = board.getBoardTitle();
+							memId = board.getMemId();
+							writeDate = board.getWriteDate().toString();
 			%>		
 				<tr>
-					<td class="tdClass" id="tdArtiNum"><%= artiNum %></td>
-					<td class="tdClass" id="tdArtiTitle"><a href="./read.co?artiNum=<%= artiNum %>"><%= artiTitle %></a></td>
-					<td class="tdClass" id="tdWriter"><%= writer %></td>
+					<td class="tdClass" id="tdArtiNum"><%= boardNum %></td>
+					<td class="tdClass" id="tdArtiTitle"><a href="./read.co?boardNum=<%= boardNum %>"><%= boardTitle %></a></td>
+					<td class="tdClass" id="tdWriter"><%= memId %></td>
 					<td class="tdClass" id="tdWriteDate"><%= writeDate %></td>
 				</tr>					
 			<%	

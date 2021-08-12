@@ -15,9 +15,9 @@ public class MemberCommand_pwCompare implements MemberCommand{
 			
 			HttpSession session = request.getSession();
 			MemberDto member = (MemberDto) session.getAttribute("memberLogin");
-			String inputPw = request.getParameter("pw");
+			String passwdToCheck = request.getParameter("pw");
 			MemberDao mdao = MemberDao.getInstance();
-			boolean compareResult = mdao.memberPwCompare(member, inputPw);
+			boolean compareResult = mdao.comparePasswd(member, passwdToCheck);
 			request.setAttribute("compareResult", compareResult);
 			
 			System.out.println("MemberCommand_pwCompare() end");

@@ -14,7 +14,7 @@ public class BoardCommand_read implements BoardCommand{
 			
 			int artiNum = Integer.parseInt(request.getParameter("artiNum"));			
 			BoardDao dao = BoardDao.getInstance();
-			BoardDto board = dao.boardSearchByArtiNum(artiNum);
+			BoardDto board = dao.boardSearchByBoardNum(artiNum);
 			
 			request.setAttribute("artiNum", artiNum);
 			request.setAttribute("board", board);

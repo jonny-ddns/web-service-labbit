@@ -6,13 +6,12 @@ import java.sql.SQLException;
 import java.util.Enumeration;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import mvc.db.dao.BoardDao;
 import mvc.db.dto.BoardDto;
-import mvc.db.dto.MemberDto;
 
+//게시글 수정된 내용 반영하기
 public class BoardCommand_update implements BoardCommand{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
@@ -20,9 +19,9 @@ public class BoardCommand_update implements BoardCommand{
 			System.out.println(">>BoardCommand_update()");
 			request.setCharacterEncoding("UTF-8");
 			
-			HttpSession session = request.getSession();
-			MemberDto member = (MemberDto) session.getAttribute("memberLogin");
-			String id = member.getId();
+//			HttpSession session = request.getSession();
+//			MemberDto member = (MemberDto) session.getAttribute("memberLogin");
+//			String memId = member.getMemId();
 			
 			/*-----------------------------------------------------------------
 				upload image file from <form> by using "MultipartRequest"
@@ -39,12 +38,11 @@ public class BoardCommand_update implements BoardCommand{
 			//artiNum 가져오기
 			int artiNum = Integer.parseInt(multi.getParameter("artiNum"));
 			
-			board.setArtiTitle(multi.getParameter("title"))
-				 .setWriter(id)
-				 .setOpenPublic(multi.getParameter("openPublic"))
-				 .setImage(boardImage)
+			board.setBoardTitle(multi.getParameter("title"))
+				 .setMemId(multi.getParameter("memId"))				 
 				 .setContent(multi.getParameter("content"))
-				 .setIsActive("y");
+				 .setUploadFiles(boardImage);
+			
 			BoardDao dao = BoardDao.getInstance();
 			dao.boardUpdate(board, artiNum);
 			

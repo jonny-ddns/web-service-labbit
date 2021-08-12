@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	System.out.println(request.getContextPath()+"/view.do");
+	System.out.println("view.jsp");
 %>
 <!DOCTYPE html>
 <html>

@@ -6,19 +6,14 @@
 <meta charset="UTF-8">
 <title>sign in</title>
 <style type="text/css">
-	h1{
-		text-align: center;
-	}
-	#form_signin{
-		text-align: center;
-	}
-	#signinCancel{
-	}
+	h1{ text-align: center; }
+	#form_signin{ text-align: center; }
+	#signinCancel{ }
 </style>
 </head>
 <body>
 	<h1>sign in</h1>
-	<form id="form_signin" action="signin.bo" method="post">
+	<form id="form_signin" action="signin.do" method="post">
 		<p>ID : <input type="text" name="id"></p>
 		<p>PW : <input type="password" name="pw"></p>
 		<p>

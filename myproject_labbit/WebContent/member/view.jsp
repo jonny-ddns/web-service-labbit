@@ -10,15 +10,14 @@
 		memberList = (List<MemberDto>) request.getAttribute("memberList");
 	}
 	
-	String id;
-	String password;
-	String name;
+	String memId;
+	String passwd;
+	String memName;
 	String email;
-	int birthyear;
+	String birthday;
 	String gender;
-	String interest;
-	Date joinDate;
-	Date updateDate;
+	String joinDate;
+	String updateDate;
 	String isActive;
 %>
 <!DOCTYPE html>
@@ -27,28 +26,12 @@
 <meta charset="UTF-8">
 <title>member view</title>
 <style type="text/css">
-	h1{
-		text-align: center;
-	}
-	table{
-		margin: auto;
-		border: 1px solid black;
-		border-collapse : collapse;
-	}
-	.tr1{
-		background-color: gold;
-		
-	}
-	.th{
-		border: 1px solid black;
-	}
-	.td{
-		border: 1px solid black;
-	}
-	.div_index{
-		margin-top: 20px;
-		text-align: center;
-	}
+	h1{ text-align: center; }
+	table{ margin: auto; border: 1px solid black; border-collapse: collapse; }
+	.tr1{ background-color: gold; }
+	.th{ border: 1px solid black; }
+	.td{ border: 1px solid black; }
+	.div_index{ margin-top: 20px; text-align: center; }
 </style>
 </head>
 <body>
@@ -59,7 +42,7 @@
 			<th class="th">password</th> 
 			<th class="th">name</th> 
 			<th class="th">email</th> 
-			<th class="th">birthyear</th> 
+			<th class="th">birthday</th> 
 			<th class="th">gender</th> 
 			<th class="th">interest</th> 
 			<th class="th">joinDate</th> 
@@ -68,25 +51,24 @@
 		</tr>
 	<%
 		for(MemberDto member : memberList){
-			id = member.getId();
-			password = member.getPassword();
-			name = member.getName();
+			memId = member.getMemId();
+			passwd = member.getPasswd();
+			memName = member.getMemName();
 			email = member.getEmail();
-			birthyear = member.getBirthyear();
+			birthday = member.getBirthday();
 			gender = member.getGender();
-			interest = member.getInterest();
-			joinDate = member.getJoinDate();
-			updateDate = member.getUpdateDate();
+			
+			joinDate = member.getJoinDate().toString();
+			updateDate = member.getUpdateDate().toString();
 			isActive = member.getIsActive();
 	%>
 		<tr>
-			<td class="td"><%= id %></td>
-			<td class="td"><%= password %></td>
-			<td class="td"><%= name %></td>
+			<td class="td"><%= memId %></td>
+			<td class="td"><%= passwd %></td>
+			<td class="td"><%= memName %></td>
 			<td class="td"><%= email %></td>
-			<td class="td"><%= birthyear %></td>
+			<td class="td"><%= birthday %></td>
 			<td class="td"><%= gender %></td>
-			<td class="td"><%= interest %></td>
 			<td class="td"><%= joinDate %></td>
 			<td class="td"><%= updateDate %></td>
 			<td class="td"><%= isActive %></td>

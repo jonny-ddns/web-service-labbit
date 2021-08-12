@@ -12,15 +12,15 @@ public class MemberCommand_signin implements MemberCommand{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			System.out.println(">>MemberCommand_signin()");
-			String id = request.getParameter("id");
-			String pw = request.getParameter("pw");
+			String memId = request.getParameter("memId");
+			String passwd = request.getParameter("passwd");
 			MemberDao mdao = MemberDao.getInstance();
-			boolean isVerified = mdao.memberVerify(id, pw);
+			boolean isVerified = mdao.memberVerify(memId, passwd);
 			
 			HttpSession session	= null;
 			MemberDto member = null;
 			if(isVerified) {
-				member = mdao.memberSearchByID(id);
+				member = mdao.memberSearchById(memId);
 				session = request.getSession();
 				session.setAttribute("memberLogin", member);
 			}

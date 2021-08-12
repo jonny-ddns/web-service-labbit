@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mvc.command.member.MemberCommand;
-import mvc.command.member.MemberCommand_memberDelete;
-import mvc.command.member.MemberCommand_memberEdit;
-import mvc.command.member.MemberCommand_memberView;
+import mvc.command.member.MemberCommand_delete;
+import mvc.command.member.MemberCommand_update;
+import mvc.command.member.MemberCommand_memberInfo;
 import mvc.command.member.MemberCommand_pwCompare;
 import mvc.command.member.MemberCommand_signin;
 import mvc.command.member.MemberCommand_signup;
 
-@WebServlet("*.bo")
+@WebServlet("*.do")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -64,19 +64,19 @@ public class MemberController extends HttpServlet {
 		}
 		else if(command.equals("memberEdit")) {
 			System.out.println("MemberCommand_memberEdit 호출");
-			com = new MemberCommand_memberEdit();
+			com = new MemberCommand_update();
 			com.execute(request, response);
 			viewPage = "../index.jsp";
 		}
 		else if(command.equals("memberDelete")) {
 			System.out.println("MemberCommand_memberDelete 호출");
-			com = new MemberCommand_memberDelete();
+			com = new MemberCommand_delete();
 			com.execute(request, response);
 			viewPage = "../index.jsp";
 		}
 		else if(command.equals("memberView")) {
 			System.out.println("MemberCommand_memberView 호출");
-			com = new MemberCommand_memberView();
+			com = new MemberCommand_memberInfo();
 			com.execute(request, response);
 			viewPage = "./memberView.jsp";
 		}

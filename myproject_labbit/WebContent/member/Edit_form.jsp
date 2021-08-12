@@ -4,8 +4,8 @@
 	System.out.println(">>memberEdit_form.jsp");
 
 	MemberDto member = (MemberDto) session.getAttribute("memberLogin");
-	String id = member.getId();
-	String name = member.getName();
+	String memId = member.getMemId();
+	String memName = member.getMemName();
 	String email = member.getEmail();
 %>
 <!DOCTYPE html>
@@ -20,20 +20,19 @@
 	<form action="memberEdit.bo" method="post">
 		<table>
 			<tr>
-				<td><input type="hidden" name="id" value="<%= id %>"></td>
+				<td><input type="hidden" name="memId" value="<%= memId %>"></td>
 			</tr>
 			<tr>
 				<td>ID</td>
-				<td><input type="text" value="<%= id %>" readonly="readonly"></td>
-				
+				<td><input type="text" value="<%= memId %>" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<td>PW</td>
-				<td><input type="password" name="pw" ></td>
+				<td><input type="password" name="passwd" ></td>
 			</tr>			
 			<tr>
 				<td>NAME</td>
-				<td><input type="text" name="name" value="<%= name %>"></td>
+				<td><input type="text" name="name" value="<%= memName %>"></td>
 			</tr>			
 			<tr>
 				<td>EMAIL</td>
@@ -174,7 +173,7 @@
 					<input type="radio" name="gender" value="x">기타
 				</td>
 			</tr>			
-			<tr>
+			<!-- <tr>
 				<td>INTEREST</td>
 				<td>
 					<input type="checkbox" name="interest" value="action" >액션<br>
@@ -193,12 +192,12 @@
 					<input type="checkbox" name="interest" value="music">음악<br>
 					<input type="checkbox" name="interest" value="documentary">다큐멘터리<br>
 				</td>
-			</tr>
+			</tr> -->
 			<tr>
 				<td colspan="2"><input type="submit" value="Submit"></td>
 			</tr>			
 		</table>
 	</form>	
-	<a href="memberDelete.bo?id=<%= id %>">회원탈퇴하기</a>
+	<a href="memberDelete.bo?id=<%= memId %>">회원탈퇴하기</a>
 </body>
 </html>

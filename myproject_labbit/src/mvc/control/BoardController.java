@@ -16,7 +16,7 @@ import mvc.command.board.BoardCommand_search;
 import mvc.command.board.BoardCommand_update;
 import mvc.command.board.BoardCommand_write;
 
-@WebServlet("*.do")
+@WebServlet("*.bo")
 public class BoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

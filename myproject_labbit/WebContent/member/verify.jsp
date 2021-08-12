@@ -15,7 +15,7 @@
 	
 	<div class="input_pw"><label>비밀번호를 다시 입력하세요</label></div>
 	<div class="input_pw">
-		<form action="compare.bo" method="post">
+		<form action="compare.do" method="post">
 			<input type="password" name="pw">
 			<input type="submit" value="확인">
 		</form>

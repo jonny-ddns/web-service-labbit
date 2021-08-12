@@ -6,29 +6,21 @@ import javax.servlet.http.HttpServletResponse;
 import mvc.db.dao.MemberDao;
 import mvc.db.dto.MemberDto;
 
-public class MemberCommand_memberEdit implements MemberCommand{
-
+public class MemberCommand_update implements MemberCommand{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			System.out.println(">>MemberCommand_memberEdit()");
-			String[] interestArr = request.getParameterValues("interest");
-			String interest = "";
-			for(String st : interestArr) {
-				interest += st;
-			}
-			
 			MemberDto member = new MemberDto();
-			member.setPassword(request.getParameter("pw"))
-				  .setName(request.getParameter("name"))
-				  .setEmail(request.getParameter("email"))
-				  .setBirthyear(Integer.parseInt(request.getParameter("birthyear")))
+			member.setMemName(request.getParameter("memName"))
+				  .setPasswd(request.getParameter("passwd"))
+				  .setBirthday(request.getParameter("birthday"))
 				  .setGender(request.getParameter("gender"))
-				  .setInterest(interest);
+				  .setEmail(request.getParameter("email"))
+				  .setPhone(request.getParameter("phone"));			
 			MemberDao mdao = MemberDao.getInstance();
-			String id = request.getParameter("id");
-			mdao.memberEdit(member, id);
-			
+			String memId = request.getParameter("memId");
+			mdao.memberUpdate(member, memId);			
 			System.out.println("MemberCommand_memberEdit() end");
 		} catch (NullPointerException npe) {
 			npe.printStackTrace();
